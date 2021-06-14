@@ -10,6 +10,7 @@ wd.attributes("-alpha",1.0)
 wd.title("Simple Calculator")
 e=Entry(wd,width=64,borderwidth=7)
 e.grid(row=0,column=0,columnspan=5,ipady=7)
+e.bind("<Key>", lambda e: "break")  
 
 def button_click(number):
     current=e.get()
@@ -29,7 +30,7 @@ def button_equal():
         e.insert(0,total)
     except:
         e.delete(0,END)
-        e.insert(0,"Syntax error")
+        e.insert(0,"Math error")
 
 
 b1=Button(text="7",bg="red",padx=42,pady=10,command=lambda:button_click(7))
